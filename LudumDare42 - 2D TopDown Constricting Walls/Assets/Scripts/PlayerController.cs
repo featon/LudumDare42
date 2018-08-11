@@ -33,6 +33,13 @@ public class PlayerController : MonoBehaviour {
 
         rB.MovePosition(rB.position + deltaMove *Time.fixedDeltaTime);
 
+        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Quaternion rotation = Quaternion.LookRotation(transform.position - mousePos, Vector3.forward);
+
+        transform.rotation = rotation;
+        transform.eulerAngles = new Vector3 (0, 0, transform.eulerAngles.z);
+        rB.angularVelocity = 0;
+
     }
 
 }

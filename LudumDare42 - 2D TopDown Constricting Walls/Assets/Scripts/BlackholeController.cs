@@ -5,6 +5,7 @@ using UnityEngine;
 public class BlackholeController : MonoBehaviour {
 
     CircleCollider2D startMarker;
+
     bool cullStart;
     float holeScale;
     public float currentScale;
@@ -17,10 +18,9 @@ public class BlackholeController : MonoBehaviour {
 	void Start ()
     {
 
-        startMarker = transform.GetComponent<CircleCollider2D>();
         currentScale = transform.localScale.x;
         maxScale = 1000f;
-        scaleRate = 0.1f;
+        scaleRate = 1f;
 
 	}
 
@@ -29,7 +29,6 @@ public class BlackholeController : MonoBehaviour {
         if (!cullStart)
         {
             Debug.Log("Start!");
-            Destroy(startMarker);
             Destroy(floorHole);
             cullStart = true;
         }
